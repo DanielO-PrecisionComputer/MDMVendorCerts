@@ -90,6 +90,60 @@ MDM Vendor Certs and Key Creation
 <div>chmod +x generate_customer_csr.sh<br>./generate_customer_csr.sh</div>
 </blockquote>
 <div id="bkmrk-4.-in-the-customer_c">4. In the customer_csr folder you will get key and csr, use csr and run against MDM Vendor Customer Signing Script (Download Signed PushCertRequest.csr)</div>
+
+
+
+<h2 id="bkmrk-signing-customer-csr">Push Cert Format for MDM</h2>
+<p id="bkmrk-after-months-of-rese">After months of research (over time, not consecutively) have gotten very close but still cannot figure out what is missing...</p>
+<p id="bkmrk-%C2%A0">As of 12:41am on 5/25/2025 - I finally got a successful signing!!!</p>
+<h2 id="bkmrk-format">Format</h2>
+<p id="bkmrk-this-is-all-base64-e">This is all Base64 encoded into file that can have just about any extension for .plist to .cert or seems like any other name, before encoding (or when decoding) this is what it is:</p>
+<blockquote id="bkmrk-%3C%3Fxml-version%3D%221.0%22-">
+<p class="MsoNormal" style="line-height: normal;"><span style="font-size: 11.0pt;">&lt;?xml version="1.0" encoding="UTF-8"?&gt; </span></p>
+<p class="MsoNormal" style="line-height: normal;"><span style="font-size: 11.0pt;">&lt;!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd"&gt; &lt;plist version="1.0"&gt;</span></p>
+<p class="MsoNormal" style="line-height: normal;"><span style="font-size: 11.0pt;">&lt;dict&gt; </span></p>
+<p class="MsoNormal" style="line-height: normal;"><span style="font-size: 11.0pt;">&lt;key&gt;PushCertCertificateChain&lt;/key&gt; </span></p>
+<p class="MsoNormal" style="line-height: normal;"><span style="font-size: 11.0pt;">&lt;string&gt;</span></p>
+<p class="MsoNormal" style="line-height: normal;"><span style="font-size: 11.0pt;">-----BEGIN CERTIFICATE-----</span></p>
+<p class="MsoNormal" style="line-height: normal;"><span style="font-size: 11.0pt;">MIIFjTCCBHWgAwIBAgIQZvXABGJtyHRHKOpJCIWzRzANBgkqhkiG9w0BAQsFADB1</span></p>
+<p class="MsoNormal" style="line-height: normal;"><strong><span style="font-size: 11.0pt; color: red;">PEM </span></strong><strong><span lang="EN-US" style="font-size: 11.0pt; color: red; mso-ansi-language: EN-US;">Version of MDM.cer that is downloaded from Developer for MDM Vendor Request</span></strong></p>
+<p class="MsoNormal" style="line-height: normal;"><span style="font-size: 11.0pt;">JxQdqymd53+zCJnUVggEvN9U6vcW0neCvJE+lGoBQXDW</span></p>
+<p class="MsoNormal" style="line-height: normal;"><span style="font-size: 11.0pt;">-----END CERTIFICATE----- </span></p>
+<p class="MsoNormal" style="line-height: normal;"><span style="font-size: 11.0pt;">-----BEGIN CERTIFICATE----- </span></p>
+<p class="MsoNormal" style="line-height: normal;"><span style="font-size: 11.0pt;">MIIEUTCCAzmgAwIBAgIQfK9pCiW3Of57m0R6wXjF7jANBgkqhkiG9w0BAQsFADBi </span></p>
+<p class="MsoNormal" style="line-height: normal;"><strong><span style="font-size: 11.0pt; color: red;">PEM Version of AppleWWDRCAG3.cer</span></strong></p>
+<p class="MsoNormal" style="line-height: normal;"><span style="font-size: 11.0pt;">NwMUGdXqapSqqdv+9poIZ4vvK7iqF0mDr8/LvOnP6pVxsLRFoszlh6oKw0E6eVza </span></p>
+<p class="MsoNormal" style="line-height: normal;"><span style="font-size: 11.0pt;">UDSdlTs= </span></p>
+<p class="MsoNormal" style="line-height: normal;"><span style="font-size: 11.0pt;">-----END CERTIFICATE----- </span></p>
+<p class="MsoNormal" style="line-height: normal;"><span style="font-size: 11.0pt;">-----BEGIN CERTIFICATE----- </span></p>
+<p class="MsoNormal" style="line-height: normal;"><span style="font-size: 11.0pt;">MIIEuzCCA6OgAwIBAgIBAjANBgkqhkiG9w0BAQUFADBiMQswCQYDVQQGEwJVUzET </span></p>
+<p class="MsoNormal" style="line-height: normal;"><strong><span style="font-size: 11.0pt; color: red;">PEM Version of AppleIncRootCertificate.cer</span></strong></p>
+<p class="MsoNormal" style="line-height: normal;"><span style="font-size: 11.0pt;">IQ7aunMZT7XZNn/Bh1XZp5m5MkL72NVxnn6hUrcbvZNCJBIqxw8dtk2cXmPIS4AX </span></p>
+<p class="MsoNormal" style="line-height: normal;"><span style="font-size: 11.0pt;">UKqK1drk/NAJBzewdXUh </span></p>
+<p class="MsoNormal" style="line-height: normal;"><span style="font-size: 11.0pt;">-----END CERTIFICATE----- </span></p>
+<p class="MsoNormal" style="line-height: normal;"><span style="font-size: 11.0pt;">&lt;/string&gt; </span></p>
+<p class="MsoNormal" style="line-height: normal;"><span style="font-size: 11.0pt;">&lt;key&gt;PushCertRequestCSR&lt;/key&gt; </span></p>
+<p class="MsoNormal" style="line-height: normal;"><span style="font-size: 11.0pt;">&lt;string&gt;</span><strong><span style="font-size: 11.0pt; color: red;">Customer CSR</span></strong><span style="font-size: 11.0pt;">&lt;/string&gt; </span></p>
+<p class="MsoNormal" style="line-height: normal;"><span style="font-size: 11.0pt;">&lt;key&gt;PushCertSignature&lt;/key&gt; </span></p>
+<p class="MsoNormal" style="line-height: normal;"><span style="font-size: 11.0pt;">&lt;string&gt;<span style="color: rgb(224, 62, 45);"><strong>Generated PushCertSignature</strong></span>&lt;/string&gt; </span></p>
+<p class="MsoNormal" style="line-height: normal;"><span style="font-size: 11.0pt;">&lt;/dict&gt; </span></p>
+<p class="MsoNormal" style="line-height: normal;"><span style="font-size: 11.0pt;">&lt;/plist&gt;</span></p>
+</blockquote>
+<p id="bkmrk-if-in-pem-format-con" class="MsoNormal" style="line-height: normal;">If in PEM format convert to DER:</p>
+<blockquote id="bkmrk-openssl-req--in-%22pus">
+<p class="MsoNormal" style="line-height: normal;">openssl req -in "PushCertificateCSR.certSigningRequest" -outform DER -out customer.csr</p>
+</blockquote>
+<p id="bkmrk-for-pushcertsignatur" class="MsoNormal" style="line-height: normal;">For PushCertSignature:</p>
+<blockquote id="bkmrk-openssl-dgst--sha256">
+<p class="MsoNormal" style="line-height: normal;">openssl dgst -sha256 -sign VendorPrivateKey.key customer.csr | base64 -w 0</p>
+</blockquote>
+<p id="bkmrk-for-pushcertrequestc" class="MsoNormal" style="line-height: normal;">For PushCertRequestCSR:</p>
+<blockquote id="bkmrk-base64--w-0-customer">
+<p class="MsoNormal" style="line-height: normal;">base64 -w 0 customer.csr</p>
+</blockquote>
+<p id="bkmrk-%C2%A0-1" class="MsoNormal" style="line-height: normal;"><br></p>
+<h4 id="bkmrk-things-to-keep-in-mi" class="MsoNormal" style="line-height: normal;">Things to Keep in mind if troubleshooting:</h4>
+<p id="bkmrk-sha256-signed-code-w">Sha256 signed code will come out the same hash each time as long as Key and CSR Files are the same (if one has different spacing, it may change then)</p>
 <div id="bkmrk-5.-then-customer-log">5. Then customer logs into their own account <a href="https://identity.apple.com/pushcert/">Apple Push Certificates Portal</a> (or you do if your're managing for them, or use yours if this is for your devices, Apple Recommends that each Business uses their own so device keys don't accidently get shared between companies)</div>
 <div id="bkmrk-6.-renew-existing-or">6. Renew existing or Create New (Depending what you need to do) and upload PushCertRequest.csr (That you downloaded from step 4)</div>
 <div id="bkmrk-7.-download-the-pem">7. Download the PEM</div>

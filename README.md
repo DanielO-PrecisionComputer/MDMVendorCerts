@@ -90,9 +90,12 @@ MDM Vendor Certs and Key Creation
 <div>chmod +x generate_customer_csr.sh<br>./generate_customer_csr.sh</div>
 </blockquote>
 <div id="bkmrk-4.-in-the-customer_c">4. In the customer_csr folder you will get key and csr, use csr and run against MDM Vendor Customer Signing Script (Download Signed PushCertRequest.csr)</div>
+<div id="bkmrk-5.-then-customer-log">5. Then customer logs into their own account <a href="https://identity.apple.com/pushcert/">Apple Push Certificates Portal</a> (or you do if your're managing for them, or use yours if this is for your devices, Apple Recommends that each Business uses their own so device keys don't accidently get shared between companies)</div>
+<div id="bkmrk-6.-renew-existing-or">6. Renew existing or Create New (Depending what you need to do) and upload PushCertRequest.csr (That you downloaded from step 4)</div>
+<div id="bkmrk-7.-download-the-pem">7. Download the PEM</div>
+<div id="bkmrk-8.-upload-pem-to-sam">8. Upload PEM to Same Folder as Step 4 (customer_csr) and now you have all the pieces, you may convert to a p12 if need to import to Jamf (Just don't confuse this .p12 with Vendor_bundle.p12)</div>
 
-
-
+<br><br>
 <h2 id="bkmrk-signing-customer-csr">Push Cert Format for MDM</h2>
 <p id="bkmrk-after-months-of-rese">After months of research (over time, not consecutively) have gotten very close but still cannot figure out what is missing...</p>
 <p id="bkmrk-%C2%A0">As of 12:41am on 5/25/2025 - I finally got a successful signing!!!</p>
@@ -144,7 +147,3 @@ MDM Vendor Certs and Key Creation
 <p id="bkmrk-%C2%A0-1" class="MsoNormal" style="line-height: normal;"><br></p>
 <h4 id="bkmrk-things-to-keep-in-mi" class="MsoNormal" style="line-height: normal;">Things to Keep in mind if troubleshooting:</h4>
 <p id="bkmrk-sha256-signed-code-w">Sha256 signed code will come out the same hash each time as long as Key and CSR Files are the same (if one has different spacing, it may change then)</p>
-<div id="bkmrk-5.-then-customer-log">5. Then customer logs into their own account <a href="https://identity.apple.com/pushcert/">Apple Push Certificates Portal</a> (or you do if your're managing for them, or use yours if this is for your devices, Apple Recommends that each Business uses their own so device keys don't accidently get shared between companies)</div>
-<div id="bkmrk-6.-renew-existing-or">6. Renew existing or Create New (Depending what you need to do) and upload PushCertRequest.csr (That you downloaded from step 4)</div>
-<div id="bkmrk-7.-download-the-pem">7. Download the PEM</div>
-<div id="bkmrk-8.-upload-pem-to-sam">8. Upload PEM to Same Folder as Step 4 (customer_csr) and now you have all the pieces, you may convert to a p12 if need to import to Jamf (Just don't confuse this .p12 with Vendor_bundle.p12)</div>

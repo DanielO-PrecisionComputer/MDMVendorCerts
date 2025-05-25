@@ -5,7 +5,7 @@ $uploadDir = __DIR__ . "/uploads/$sessionId/";
 $outputDir = __DIR__ . "/output/$sessionId/";
 $certDir = __DIR__ . "/certs/";
 $p12File = $certDir . "vendor_bundle.p12";
-$p12Pass = "1500"; // 🔐 Set your actual password
+$p12Pass = "PASSWORD"; // 🔐 Set your actual password
 $wwdrPem = $certDir . "AppleWWDRCAG3.pem";
 $rootPem = $certDir . "AppleRoot.pem";
 

@@ -5,7 +5,7 @@ MDM Vendor Certs and Key Creation
 
 <h2 id="bkmrk-signing-customer-csr">Signing Customer CSR Requests Script</h2>
 <p id="bkmrk-script%3A-mdmvendor_si">Script: MDMVendor_SigningCustomerCSR_Script</p>
-<p id="bkmrk-replace%3A-vendor_bund">Replace: vendor_bundle.p12 with valid bundle if needed, zip contains one valid till June 2025</p>
+<p id="bkmrk-replace%3A-vendor_bund">Add: vendor_bundle.p12 to certs folder and update password in script</p>
 <p id="bkmrk-upload-sign_and_down">Upload sign_and_download.php to host (can be internal or behind proxy with passcode requirement, NOT READY FOR PUBLIC SIDE)</p>
 <p id="bkmrk-make-sure-the-folder">Make sure the folders are writeable chmod 777</p>
 <p id="bkmrk-%2Aif-still-using-afte">*IF Still using after 2030ish, you may need to update certs to one that matches what Apple says, or when you get your Vendor MDM.cer open to see what the upstream chain is and make sure it matches to script so you can have it included in PushCertCertificateChain</p>

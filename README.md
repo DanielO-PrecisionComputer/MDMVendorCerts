@@ -90,7 +90,7 @@ MDM Vendor Certs and Key Creation
 <div>chmod +x generate_customer_csr.sh<br>./generate_customer_csr.sh</div>
 </blockquote>
 <div id="bkmrk-4.-in-the-customer_c">4. In the customer_csr folder you will get key and csr, use csr and run against MDM Vendor Customer Signing Script (Download Signed PushCertRequest.csr)</div>
-<div id="bkmrk-5.-then-customer-log">5. Then customer logs into their own account <a href="https://identity.apple.com/pushcert/">Apple Push Certificates Portal</a> (or we do if were managing for them, or use ours if this is for us)</div>
+<div id="bkmrk-5.-then-customer-log">5. Then customer logs into their own account <a href="https://identity.apple.com/pushcert/">Apple Push Certificates Portal</a> (or you do if your're managing for them, or use yours if this is for your devices, Apple Recommends that each Business uses their own so device keys don't accidently get shared between companies)</div>
 <div id="bkmrk-6.-renew-existing-or">6. Renew existing or Create New (Depending what you need to do) and upload PushCertRequest.csr (That you downloaded from step 4)</div>
 <div id="bkmrk-7.-download-the-pem">7. Download the PEM</div>
 <div id="bkmrk-8.-upload-pem-to-sam">8. Upload PEM to Same Folder as Step 4 (customer_csr) and now you have all the pieces, you may convert to a p12 if need to import to Jamf (Just don't confuse this .p12 with Vendor_bundle.p12)</div>
